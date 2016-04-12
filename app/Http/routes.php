@@ -1,104 +1,51 @@
 <?php
 
-Route::get('/', function(){
-    return view('welcome');
-});
 
 Route::group(['middleware' => 'web'], function () {
+    Route::get('/', function(){
+        return view('welcome');
+    });
     Route::auth();
-
     Route::get('/home', 'HomeController@index');
-
-    Route::group(['prefix' => 'tasks'], function() {
-        Route::get('/agreement', [
-            'as' => 'getAgreement',
-            'uses' => 'TasksController@getAgreement'
+    
+    Route::group(['prefix' => 'admin', 'middleware' => 'role:admin'], function () {
+        Route::get('/tasks', [
+            'as' => 'admin.tasks.index',
+            'uses' => 'Admin\TasksController@index'
         ]);
-        Route::post('/agreement', [
-            'as' => 'postAgreement',
-            'uses' => 'TasksController@postAgreement'
+        Route::post('/tasks/:id/confirm', [
+            'as' => 'admin.task.confirm',
+            'uses' => 'Admin\TasksController@confirm'
         ]);
-        Route::get('/', [
-            'as' => 'allTasks',
-            'uses' => 'TasksController@getAll'
-        ]);
-        Route::post('/', [
-            'as' => 'newTask',
-            'uses' => 'TasksController@postNew'
-        ]);
-        Route::get('/:id', [
-            'as' => 'getTask',
-            'uses' => 'TasksController@getOne'
-        ]);
-        Route::get('/:id/edit', [
-            'as' => 'editTask',
-            'uses' => 'TasksController@editOne'
-        ]);
-        Route::post('/:id/edit', [
-            'as' => 'updateTask',
-            'uses' => 'TasksController@updateOne'
-        ]);
-        Route::get('/:id/confirm', [
-            'as' => 'confirmTask',
-            'uses' => 'TasksController@confirm'
-        ]);
-        Route::post('/:id/remove', [
-            'as' => 'removeTask',
-            'uses' => 'TasksController@removeOne'
-        ]);
-        Route::get('/:id/pay', [
-            'as' => 'taskPay',
-            'use' => 'TasksController@getPay'
-        ]);
-        Route::post('/:id/pay', [
-            'as' => 'taskPaid',
-            'use' => 'TasksController@postPay'
-        ]);
+        Route::resource('methods', 'Admin\MethodsController');
+    });
+    Route::group(['prefix' => 'ana', 'middleware' => 'role:analyzer'], function () {
         Route::post('/:id/commit', [
-            'as' => 'taskCommit',
-            'use' => 'TasksController@commit'
+            'as' => 'ana.task.commit',
+            'use' => 'Ana\TasksController@commit'
         ]);
         Route::post('/:id/finish', [
-            'as' => 'taskFinish',
-            'use' => 'TasksController@finish'
+            'as' => 'ana.task.finish',
+            'use' => 'Ana\TasksController@finish'
         ]);
     });
-
-    Route::group(['prefix' => 'pay'], function(){
-        Route::get('/', [
-            'as' => 'allPay',
-            'uses' => 'PayController@getAll'
+    Route::group(['prefix' => 'admin', 'middleware' => 'role:demander'], function () {
+        Route::get('/agreement', [
+            'as' => 'dema.get.agreement',
+            'uses' => 'Dema\TasksController@getAgreement'
         ]);
-        Route::post('/', [
-            'as' => 'newPay',
-            'uses' => 'PayController@postNew'
+        Route::post('/agreement', [
+            'as' => 'dema.post.agreement',
+            'uses' => 'Dema\TasksController@postAgreement'
         ]);
-        Route::get('/:id/edit', [
-            'as' => 'editPay',
-            'uses' => 'PayController@editOne'
+        Route::get('/:id/pay', [
+            'as' => 'dema.get.pay',
+            'use' => 'Dema\TasksController@getPay'
         ]);
-        Route::post('/:id/edit', [
-            'as' => 'updatePay',
-            'uses' => 'PayController@updateOne'
+        Route::post('/:id/pay', [
+            'as' => 'dema.post.pay',
+            'use' => 'Dema\TasksController@postPay'
         ]);
+        Route::resource('tasks', 'Dema\TasksController');
     });
-    Route::group(['prefix' => 'method'], function(){
-        Route::get('/', [
-            'as' => 'allMethods',
-            'uses' => 'MethodsController@getAll'
-        ]);
-        Route::post('/', [
-            'as' => 'newMethod',
-            'uses' => 'MethodsController@postNew'
-        ]);
-        Route::get('/:id/edit', [
-            'as' => 'editMethod',
-            'uses' => 'MethodsController@editOne'
-        ]);
-        Route::post('/:id/edit', [
-            'as' => 'updateMethod',
-            'uses' => 'MethodsController@updateOne'
-        ]);
-    });
-
 });

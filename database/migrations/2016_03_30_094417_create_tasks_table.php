@@ -14,8 +14,10 @@ class CreateTasksTable extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->uuid('id');
-            $table->integer('user_id')->index();
-            $table->boolean('agreement')->default(1);
+            $table->primary('id');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->boolean('agreement')->default(true);
             $table->tinyInteger('level')->default(1);
             $table->text('description')->nullable();
             $table->string('email')->nullable();
@@ -27,11 +29,11 @@ class CreateTasksTable extends Migration
             $table->float('pay')->nullable();
             $table->tinyInteger('pay_method')->nullable();
             $table->string('pay_account')->nullable();
-            $table->boolean('require_invoice')->default(0);
-            $table->boolean('invoice_delivered')->default(0);
-            $table->boolean('verified')->default(0);
-            $table->boolean('claimed')->default(0);
-            $table->boolean('completed')->default(0);
+            $table->boolean('require_invoice')->default(false);
+            $table->boolean('invoice_delivered')->default(false);
+            $table->boolean('verified')->default(false);
+            $table->boolean('claimed')->default(false);
+            $table->boolean('completed')->default(false);
             $table->timestamps();
         });
     }
