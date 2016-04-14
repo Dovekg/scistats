@@ -12,4 +12,9 @@ class Method extends Model {
 
     protected $casts = [
     ];
+
+    public function tasks()
+    {
+        return $this->belongsToMany('App\Models\Task');
+    }
 }

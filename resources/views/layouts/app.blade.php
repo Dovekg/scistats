@@ -34,7 +34,7 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}">主页</a></li>
+                    <li><a href="{{ url('/') }}">主页</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -81,5 +81,6 @@
 
     <!-- JavaScripts -->
     <script src="{{ elixir('js/all.js') }}"></script>
+@yield('scripts')
 </body>
 </html>

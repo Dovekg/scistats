@@ -6,7 +6,7 @@
         <div class="app-tabs">
             <ul class="nav app-tabs-stacked">
                 <li>
-                    <a href="{{ route('admin.tasks.index') }}">
+                    <a href="{{ route('admin.tasks.all') }}">
                         <i class="fa fa-btn fa-fw fa-list"></i>&nbsp;审核任务
                     </a>
                     <a href="{{ route('admin.methods.index') }}">

@@ -14,7 +14,7 @@
         @else
             <table class="table table-responsive">
                 <thead>
-                    <th>#ID</th>
+                    <th>用户邮箱</th>
                     <th>类别</th>
                     <th>预算</th>
                     <th>是否付款</th>
@@ -25,27 +25,33 @@
                 <tbody>
                 @foreach($tasks as $task)
                     <tr>
-                        <td>{!! $task->id !!}</td>
+                        <td>{!! $task->user->email !!}</td>
                         <td>{!! $task->level !!}</td>
                         <td>{!! $task->budged !!}</td>
-                        <td>{!! $task->pay !!}</td>
+                        <td>
+                            @if($task->paid)
+                                <i class="btn btn-success"><i class="fa fa-check"></i>已付清</i>
+                            @else
+                                <i class="btn btn-danger"><i class="fa fa-spark"></i>未付款</i>
+                            @endif
+                        </td>
                         <td>{!! $task->created_at !!}</td>
                         <td>
-                        @if ($task->verified)
-                            {!! Form::open(['route' => 'admin.task.confirm', $task->id], 'method' => 'post') !!}
-                                {!! Form::button('<i class="fa fa-rocket"></i>', ['type' => 'submit', 'class' => 'btn btn-default btn-xs', 'onclick' => "return confirm('确认下发？')"]) !!}
+                        @if (!$task->verified)
+                            {!! Form::open(['route' => ['admin.task.confirm', $task->id], 'method' => 'post']) !!}
+                                {!! Form::button('<i class="fa fa-rocket"></i>', ['type' => 'submit', 'class' => 'btn btn-success btn-xs', 'onclick' => "return confirm('确认下发？')"]) !!}
                             {!! Form::close() !!}
                         @else
-                            {!! Form::open(['route' => 'admin.task.confirm', $task->id], 'method' => 'post') !!}
-                                {!! Form::button('<i class="fa fa-rocket"></i>', ['type' => 'submit', 'class' => 'btn btn-default btn-xs', 'onclick' => "return confirm('确认撤销下发？')"]) !!}
+                            {!! Form::open(['route' => ['admin.task.confirm', $task->id], 'method' => 'post']) !!}
+                                {!! Form::button('<i class="fa fa-rocket"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('确认撤销下发？')"]) !!}
                             {!! Form::close() !!}
                         @endif
                         </td>
                         <td>
-                            {!! Form::open(['route' => ['tasks.destroy', $task->id], 'method' => 'delete']) !!}
+                            {!! Form::open(['route' => ['admin.task.destroy', $task->id], 'method' => 'delete']) !!}
                             <div class='btn-group'>
-                                <a href="{!! route('tasks.show', [$task->id]) !!}" class='btn btn-default btn-xs'><i class="fa fa-eye"></i></a>
-                                <a href="{!! route('tasks.edit', [$task->id]) !!}" class='btn btn-default btn-xs'><i class="fa fa-edit"></i></a>
+                                {{--<a href="{!! route('tasks.show', [$task->id]) !!}" class='btn btn-default btn-xs'><i class="fa fa-eye"></i></a>--}}
+                                {{--<a href="{!! route('tasks.edit', [$task->id]) !!}" class='btn btn-default btn-xs'><i class="fa fa-edit"></i></a>--}}
                                 {!! Form::button('<i class="fa fa-times"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('确认删除？')"]) !!}
                             </div>
                             {!! Form::close() !!}

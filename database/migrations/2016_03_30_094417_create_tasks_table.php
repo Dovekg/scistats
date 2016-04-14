@@ -26,7 +26,7 @@ class CreateTasksTable extends Migration
             $table->string('result_file')->nullable();
             $table->string('review_file')->nullable();
             $table->float('budged')->nullable();
-            $table->float('pay')->nullable();
+            $table->tinyInteger('paid')->default(1);
             $table->tinyInteger('pay_method')->nullable();
             $table->string('pay_account')->nullable();
             $table->boolean('require_invoice')->default(false);
