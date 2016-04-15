@@ -38,7 +38,7 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
                 {!! Form::submit('提交付款信息', ['class' => 'btn btn-primary']) !!}
             </div>
         </div>

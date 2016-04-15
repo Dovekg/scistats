@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Scistats</title>
+    <title>Scistats--善析</title>
 
     <!-- Styles -->
     <link href="{{ elixir('css/all.css') }}" rel="stylesheet">
@@ -47,7 +47,9 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                                <li><a href="{{ url('/home') }}"><i class="fa fa-btn fa-gears"></i>管理界面</a></li>
+                                <div class="divider"></div>
+                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>登出</a></li>
                             </ul>
                         </li>
                     @endif
@@ -57,7 +59,7 @@
     </nav>
 
     <div class="container app-screen">
-        <div class="col-md-3">
+        <div class="col-sm-3">
             @if(Auth::guest())
                 @include('sidebar.auth')
             @elseif(Auth::user()->role == 'admin')
@@ -69,7 +71,7 @@
             @endif
             
         </div>
-        <div class="col-md-9">
+        <div class="col-sm-9">
             <div class="tab-content">
                 <div class="tab-pane">
                     @yield('content')
@@ -82,5 +84,6 @@
     <!-- JavaScripts -->
     <script src="{{ elixir('js/all.js') }}"></script>
 @yield('scripts')
+    {!! Toastr::render() !!}
 </body>
 </html>

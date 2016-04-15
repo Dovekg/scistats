@@ -69,14 +69,16 @@ class TasksController extends Controller
 
         }
 
+
         $task = [];
-        $task = $this->uploadFile($request, $task);
+        $task = $this->uploadFile($request, 'data', $task);
+        $task = $this->uploadFile($request, 'review', $task);
         $task['user_id'] = Auth::user()->id;
         $task['description'] = $request->get('description');
         $task['phone'] = $request->get('phone');
         $task['email'] = $request->get('email');
         $task['budged'] = $budged;
-
+//        dd($task);
         $id = $this->repo->create($task)->id;
         
         if($methods)
@@ -151,7 +153,8 @@ class TasksController extends Controller
         }
 
         $task = [];
-        $task = $this->uploadFile($request, $task);
+        $task = $this->uploadFile($request, 'data', $task);
+        $task = $this->uploadFile($request, 'review', $task);
         $task['description'] = $request->get('description');
         $task['phone'] = $request->get('phone');
         $task['email'] = $request->get('email');
@@ -176,18 +179,20 @@ class TasksController extends Controller
      * @param $task
      * @return mixed
      */
-    public function uploadFile(Request $request, $task)
+    public function uploadFile(Request $request, $type, $task)
     {
-        if ($request->hasFile('data_file')) {
-            $file = $request->file('data_file');
+        if ($request->hasFile($type . '_file')) {
+            $file = $request->file($type . '_file');
             if ($file->isValid()) {
                 $newFileName = md5(time() . rand(0, 1000)) . '.' . $file->getClientOriginalExtension();
-                $savePath = 'data/' . $newFileName;
+                $savePath = $newFileName;
                 Storage::put(
                     $savePath,
                     file_get_contents($file->getRealPath())
                 );
-                $task['data_file'] = $savePath;
+                $task[$type . '_mime'] = $file->getClientMimeType();
+                $task[$type . '_ori_filename'] = $file->getClientOriginalName();
+                $task[$type . '_file'] = $savePath;
                 return $task;
             }
             return $task;

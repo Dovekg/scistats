@@ -1,59 +1,36 @@
 <table class="table table-hover">
     <thead>
-        <tr>
-            <th>需求属性</th>
-            <th>需求内容</th>
-        </tr>
+    <tr>
+        <th>需求属性</th>
+        <th>需求内容</th>
+    </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>需求标识符</td>
-            <td>{{ $task->id }}</td>
-        </tr>
-        <tr>
-            <td>需求描述</td>
-            <td>{{ $task->description }}</td>
-        </tr>
-        <tr>
-            <td>所需方法</td>
+    <tr>
+        <td>需求标识符</td>
+        <td>{{ $task->id }}</td>
+    </tr>
+    <tr>
+        <td>需求描述</td>
+        <td>{{ $task->description }}</td>
+    </tr>
+    <tr>
+        <td>所需方法</td>
 
-            <td>
-                @foreach($task->methods as $method)
-                    <span class="label label-default">{{ $method->name }}</span>
-                @endforeach
-            </td>
-
-        </tr>
-        <tr>
-            <td>付费状态</td>
-            <td>
-                @if($task->paid == 3)
-                    <i class="btn btn-success btn-xs"><i class="fa fa-check"></i>已付清</i>
-                @elseif($task->paid == 2)
-                    <i class="btn btn-info btn-xs"><i class="fa fa-circle-o-notch"></i>确认中</i>
-                @else
-                    <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target=".dema-pay-modal-{{$task->id}}"><i class="fa fa-credit-card">&nbsp;&nbsp;</i>去支付</button>
-                    @include('partials.dema-pay-modal')
-                @endif
-            </td>
-        </tr>
-        <tr>
-            <td>认领状态</td>
-            <td>
-                @if($task->claimed)
-                    <i class="btn btn-success btn-xs"><i class="fa fa-check">&nbsp;&nbsp;</i>已有分析人员认领</i>
-                @else
-                    <i class="btn btn-warning btn-xs"><i class="fa fa-warning">&nbsp;&nbsp;</i>还未有人认领任务</i>
-                @endif
-            </td>
-        </tr>
+        <td>
+            @foreach($task->methods as $method)
+                <span class="label label-default">{{ $method->name }}</span>
+            @endforeach
+        </td>
+    </tr>
+    @unless(!$task->claimed)
         <tr>
             <td>完成状态状态</td>
             <td>
-                @if($task->claimed)
-                    <i class="btn btn-success btn-xs"><i class="fa fa-check">&nbsp;&nbsp;</i>恭喜你，已完成，请注意查收邮箱或在本页面下载结果文档！</i>
+                @if($task->completed)
+                    <i class="btn btn-success btn-xs"><i class="fa fa-check">&nbsp;&nbsp;</i>分析已完成，感谢你的辛勤劳动！</i>
                 @else
-                    <i class="btn btn-info btn-xs"><i class="fa fa-warning">&nbsp;&nbsp;</i>很抱歉，分析人员还在努力分析中！</i>
+                    <i class="btn btn-info btn-xs"><i class="fa fa-warning">&nbsp;&nbsp;</i>请上传分析结果，完成状态会自动更新！</i>
                 @endif
             </td>
         </tr>
@@ -94,10 +71,13 @@
                 </td>
             @else
                 <td>
-                    <span class="label label-info"><i class="fa fa-warning">&nbsp;&nbsp;</i>再给我一些时间完善结果</span>
+                    {!! Form::open(['route' => ['ana.tasks.finish', $task->id], 'method' => 'patch', 'enctype' => 'multipart/form-data']) !!}
+                    {!! Form::file('result_file') !!}
+                    {!! Form::button('<i class="fa fa-cloud-upload">&nbsp;&nbsp;&nbsp;&nbsp;</i>上传并且确认完成', ['type' => 'submit', 'class' => 'btn btn-info btn-xs pull-right', 'onclick' => "return confirm('确认完成？')"]) !!}
+                    {!! Form::close() !!}
                 </td>
             @endif
         </tr>
-
+    @endunless
     </tbody>
 </table>

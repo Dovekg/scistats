@@ -7,7 +7,7 @@
                 <option value={{$method->id}}>{{$method->name}}</option>
             @endforeach
         </select>
-        <p class="help-block"><i class="fa fa-exclamation-circle text-info">&nbsp;&nbsp;&nbsp;&nbsp;</i>新建或修改,都需要重新选择！</p>
+        <div style="{{ setVisible('create') }}"><p class="help-block" ><i class="fa fa-exclamation-circle text-info">&nbsp;&nbsp;&nbsp;&nbsp;</i>请重新重新选择方法！</p></div>
     </div>
 </div>
 
@@ -33,13 +33,19 @@
     {!! Form::label('data_file', '数据文档：', ['class' => 'col-sm-2 col-sm-offset-1 control-label']) !!}
     <div class="col-sm-5">
         {!! Form::file('data_file') !!}
-        <p class="help-block"><i class="fa fa-exclamation-circle text-info">&nbsp;&nbsp;&nbsp;&nbsp;</i>之前上传过，此处可不必上传重复文件！</p>
+        <div style="{{ setVisible('create') }}">
+        <p class="help-block" {{ setVisible('create') }}><i class="fa fa-exclamation-circle text-info">&nbsp;&nbsp;&nbsp;&nbsp;</i>若文件有更改，请重新上传！</p>
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    {!! Form::label('data_file', '需要校验数据文档：', ['class' => 'col-sm-2 col-sm-offset-1 control-label']) !!}
+    <div class="col-sm-5">
+        {!! Form::file('review_file') !!}
+        <p class="help-block"><i class="fa fa-exclamation-circle text-info">&nbsp;&nbsp;&nbsp;&nbsp;</i>若需要校验别处处理的数据，请一并上传！</p>
     </div>
 </div>
 <!-- Submit Field -->
-<div class="form-group col-sm-12">
-
-</div>
 <div class="form-group">
     <div class="col-sm-4 col-sm-offset-3">
         <button class="btn btn-primary"><i class="fa fa-btn fa-save"></i>保存</button>
