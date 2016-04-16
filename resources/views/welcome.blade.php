@@ -27,7 +27,7 @@
                     </ul>
                 </div>
                 <div>
-                    <img src="https://placehold.co/550x400" style="width: 100%;">
+                    <img src="/images/home/analye.png" style="width: 100%;">
                 </div>
             </div>
         </div>
@@ -36,7 +36,7 @@
     <!-- Features Heading -->
     <div class="row">
         <div class="col-md-10 col-md-offset-1 splash-row-heading">
-            你可能会感到欣喜的地方
+            服务保障
         </div>
     </div>
 
@@ -44,165 +44,101 @@
     <div class="row splash-features-icon-row">
         <div class="col-md-10 col-md-offset-1 text-center">
             <div class="col-md-4 splash-features-feature">
-                <div class="splash-feature-icon">
-                    <i class="fa fa-lock"></i>
+                <div class="splash-feature-image">
+                    <img src="/images/home/analyzis-01.png">
                 </div>
 
                 <div class="splash-feature-heading">
-                    及时反馈
+                    反馈及时
                 </div>
 
                 <div class="splash-feature-text">
-                    从提交到确认到分析，流水线一样顺畅
+                    有网络的地方就有我们的身影
                 </div>
             </div>
 
             <div class="col-md-4 splash-features-feature">
-                <div class="splash-feature-icon">
-                    <i class="fa fa-money"></i>
+                <div class="splash-feature-image">
+                    <img src="/images/home/analyzis-02.png">
                 </div>
 
                 <div class="splash-feature-heading">
-                    数据加密
+                    数据保密
                 </div>
 
                 <div class="splash-feature-text">
-                    数据在传输的过程中绝不会出现泄漏和被滥用
+                    客户的数据安全是我们的立身之本
                 </div>
             </div>
 
             <div class="col-md-4 splash-features-feature">
-                <div class="splash-feature-icon">
-                    <i class="fa fa-phone"></i>
+                <div class="splash-feature-image">
+                    <img src="/images/home/analyzis-03.png">
                 </div>
 
                 <div class="splash-feature-heading">
-                    多渠道服务
+                    多层校验
                 </div>
 
                 <div class="splash-feature-text">
-                    无论是分析要有还是支付渠道，我们都为您匹配最优解
+                    每一份报告都经过严格的质量把关
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Feature Icons -->
-    <div class="row splash-features-icon-row">
-        <div class="col-md-10 col-md-offset-1 text-center">
-            <div class="col-md-4 splash-features-feature">
-                <div class="splash-feature-icon">
-                    <i class="fa fa-users"></i>
-                </div>
-
-                <div class="splash-feature-heading">
-                    严格把关
-                </div>
-
-                <div class="splash-feature-text">
-                    在数据分析员水平和最终结果把关上我们力争不出一丝差错
-                </div>
-            </div>
-
-            <div class="col-md-4 splash-features-feature">
-                <div class="splash-feature-icon">
-                    <i class="fa fa-cubes"></i>
-                </div>
-
-                <div class="splash-feature-heading">
-                    后顾无忧
-                </div>
-
-                <div class="splash-feature-text">
-                    分析后我们仍旧为分析报告提供长达一个月的后续服务
-                </div>
-            </div>
-
-            <div class="col-md-4 splash-features-feature">
-                <div class="splash-feature-icon">
-                    <i class="fa fa-clock-o"></i>
-                </div>
-
-                <div class="splash-feature-heading">
-                    网络化统筹
-                </div>
-
-                <div class="splash-feature-text">
-                    一改原先的机动繁杂，现在我们借助互联网一条龙服务
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-    <!-- Customers Heading -->
     <div class="row">
         <div class="col-md-10 col-md-offset-1 splash-row-heading">
-            我们的顾客如是说
+            服务内容
         </div>
     </div>
-
-    <!-- Customer Testimonials -->
     <div class="row splash-customer-row">
-        <div class="col-md-10 col-md-offset-1 text-center">
-            <div class="col-md-4 splash-customer">
-                <div class="splash-customer-avatar">
-                    <img src="https://s3.amazonaws.com/uifaces/faces/twitter/msurguy/128.jpg">
+            <div class="col-md-10 col-md-offset-1 text-center">
+                <div class="col-md-4">
+                    <div class="card hovercard">
+                       <div class="service bg-green">
+                           <span class="service-name">基础分析</span>
+                       </div>
+                       <div class="info">
+                          <p>集中趋势，离散趋势，t检验，卡方检验，方差分析，秩和检验，排列检验，基础统计图形，高级统计图形</p>
+                       </div>
+                    </div>
                 </div>
-
-                <div class="splash-customer-quote">
-                    This is an inspiring testimonial about your application.
+                <div class="col-md-4 splash-customer">
+                    <div class="card hovercard">
+                       <div class="service bg-yellow">
+                           <span class="service-name">高级分析</span>
+                       </div>
+                       <div class="info">
+                          <p>多重线性回归，logistic回归，log-linear模型，Poisson回归，生存分析，决策树模型，时间序列，混合效应模型，GAM模型，灰色预测模型，Meta分析</p>
+                       </div>
+                    </div>
                 </div>
-
-                <div class="splash-customer-identity">
-                    <div class="splash-customer-name">Maksim Surguy</div>
-                    <div class="splash-customer-title">CEO, Company</div>
-                </div>
-            </div>
-
-            <div class="col-md-4 splash-customer">
-                <div class="splash-customer-avatar">
-                    <img src="https://s3.amazonaws.com/uifaces/faces/twitter/allisongrayce/128.jpg">
-                </div>
-
-                <div class="splash-customer-quote">
-                    This is an inspiring testimonial about your application.
-                </div>
-
-                <div class="splash-customer-identity">
-                    <div class="splash-customer-name">Allison Grayce</div>
-                    <div class="splash-customer-title">CEO, Company</div>
-                </div>
-            </div>
-
-            <div class="col-md-4 splash-customer">
-                <div class="splash-customer-avatar">
-                    <img src="https://s3.amazonaws.com/uifaces/faces/twitter/richcsmith/128.jpg">
-                </div>
-
-                <div class="splash-customer-quote">
-                    This is an inspiring testimonial about your application.
-                </div>
-
-                <div class="splash-customer-identity">
-                    <div class="splash-customer-name">Rich Smith</div>
-                    <div class="splash-customer-title">CEO, Company</div>
+                <div class="col-md-4 splash-customer">
+                    <div class="card hovercard">
+                       <div class="service bg-red">
+                           <span class="service-name">数据挖掘</span>
+                       </div>
+                       <div class="info">
+                          <p>聚类分析，神经网络，社会网络，因子分析，SEM</p>
+                       </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+
+
 
     <!-- Footer -->
     <div class="row">
         <!-- Company Information -->
         <div class="col-md-10 col-md-offset-1 splash-footer">
             <div class="pull-left splash-footer-company">
-                Copyright © - <a href="/terms">Terms Of Service</a>
+                Copyright © - Scistats 2016</a>
             </div>
 
             <!-- Social Icons -->
-            <div class="pull-right splash-footer-social-icons">
+            <!-- <div class="pull-right splash-footer-social-icons">
                 <a href="http://facebook.com">
                     <i class="fa fa-btn fa-facebook-square"></i>
                 </a>
@@ -212,7 +148,7 @@
                 <a href="http://github.com">
                     <i class="fa fa-github-square"></i>
                 </a>
-            </div>
+            </div> -->
 
             <div class="clearfix"></div>
         </div>

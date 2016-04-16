@@ -19,7 +19,7 @@
 
             <td>
                 @foreach($task->methods as $method)
-                    <span class="label label-default">{{ $method->name }}</span>
+                    <span class="label label-info">{{ $method->name }}</span>
                 @endforeach
             </td>
 
@@ -28,9 +28,9 @@
             <td>付费状态</td>
             <td>
                 @if($task->paid == 3)
-                    <i class="btn btn-success btn-xs"><i class="fa fa-check"></i>已付清</i>
+                    <button class="btn btn-success btn-xs"><i class="fa fa-check"></i>已付清</button>
                 @elseif($task->paid == 2)
-                    <i class="btn btn-info btn-xs"><i class="fa fa-circle-o-notch"></i>确认中</i>
+                    <button class="btn btn-info btn-xs"><i class="fa fa-circle-o-notch"></i>确认中</button>
                 @else
                     <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target=".dema-pay-modal-{{$task->id}}"><i class="fa fa-credit-card">&nbsp;&nbsp;</i>去支付</button>
                     @include('partials.dema-pay-modal')
@@ -41,9 +41,9 @@
             <td>认领状态</td>
             <td>
                 @if($task->claimed)
-                    <i class="btn btn-success btn-xs"><i class="fa fa-check">&nbsp;&nbsp;</i>已有分析人员认领</i>
+                    <i class="label label-success btn-xs"><i class="fa fa-check">&nbsp;&nbsp;</i>已有分析人员认领</i>
                 @else
-                    <i class="btn btn-warning btn-xs"><i class="fa fa-warning">&nbsp;&nbsp;</i>还未有人认领任务</i>
+                    <i class="label label-default btn-xs"><i class="fa fa-warning">&nbsp;&nbsp;</i>还未有人认领任务</i>
                 @endif
             </td>
         </tr>
@@ -51,9 +51,9 @@
             <td>完成状态状态</td>
             <td>
                 @if($task->claimed)
-                    <i class="btn btn-success btn-xs"><i class="fa fa-check">&nbsp;&nbsp;</i>恭喜你，已完成，请注意查收邮箱或在本页面下载结果文档！</i>
+                    <i class="label label-success btn-xs"><i class="fa fa-check">&nbsp;&nbsp;</i>恭喜你，已完成，请注意查收邮箱或在本页面下载结果文档！</i>
                 @else
-                    <i class="btn btn-info btn-xs"><i class="fa fa-warning">&nbsp;&nbsp;</i>很抱歉，分析人员还在努力分析中！</i>
+                    <i class="label label-default btn-xs"><i class="fa fa-warning">&nbsp;&nbsp;</i>很抱歉，分析人员还在努力分析中！</i>
                 @endif
             </td>
         </tr>
@@ -68,7 +68,7 @@
                 </td>
             @else
                 <td>
-                    <span class="label label-info"><i class="fa fa-warning">&nbsp;&nbsp;</i>你没有上传任何数据文档</span>
+                    <span class="label label-default"><i class="fa fa-warning">&nbsp;&nbsp;</i>你没有上传任何数据文档</span>
                 </td>
             @endif
         </tr>
@@ -78,7 +78,7 @@
                 <td><a href="{{ route('download.review',$task->review_file) }}" class="btn btn-success btn-xs"><i class="fa fa-cloud-download">&nbsp;&nbsp;</i>{{ $task->review_ori_filename }}</a></td>
             @else
                 <td>
-                    <span class="label label-info"><i class="fa fa-warning">&nbsp;&nbsp;</i>你没有上传任何数据文档</span>
+                    <span class="label label-default"><i class="fa fa-warning">&nbsp;&nbsp;</i>你没有上传任何数据文档</span>
                 </td>
             @endif
         </tr>
@@ -90,7 +90,7 @@
                 </td>
             @else
                 <td>
-                    <span class="label label-info"><i class="fa fa-warning">&nbsp;&nbsp;</i>再给我一些时间完善结果</span>
+                    <span class="label label-default"><i class="fa fa-warning">&nbsp;&nbsp;</i>再给我一些时间完善结果</span>
                 </td>
             @endif
         </tr>

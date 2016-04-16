@@ -12,7 +12,7 @@ use App\Http\Controllers\Controller;
 use App\Repositories\Criteria\UserTasksLimit;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-
+use Yuansir\Toastr\Facades\Toastr;
 class TasksController extends Controller
 {
     protected $repo;
@@ -88,7 +88,7 @@ class TasksController extends Controller
                 $this->repo->find($id)->methods()->attach($method);
             }
         }
-        
+        Toastr::success('需求添加成功','成功');
         return redirect(route('dema.tasks.index'));
     }
 
@@ -115,6 +115,7 @@ class TasksController extends Controller
         $task = $request->only('pay_method', 'pay_account', 'require_invoice');
         $task['paid'] = 2;
         $this->repo->update($task, $id);
+        Toastr::success('付款成功，等待确认','成功');
         return redirect(route('dema.tasks.index'));
     }
 
@@ -159,6 +160,7 @@ class TasksController extends Controller
         $task['phone'] = $request->get('phone');
         $task['email'] = $request->get('email');
         $this->repo->update($task, $id);
+        Toastr::success('需求信息更新成功','成功');
         return redirect(route('dema.tasks.index'));
     }
 
@@ -171,6 +173,7 @@ class TasksController extends Controller
     public function destroy($id)
     {
         $this->repo->delete($id);
+        Toastr::success('需求信息删除成功','成功');
         return redirect(route('dema.tasks.index'));
     }
 

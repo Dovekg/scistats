@@ -42,7 +42,12 @@
     {!! Form::label('data_file', '需要校验数据文档：', ['class' => 'col-sm-2 col-sm-offset-1 control-label']) !!}
     <div class="col-sm-5">
         {!! Form::file('review_file') !!}
-        <p class="help-block"><i class="fa fa-exclamation-circle text-info">&nbsp;&nbsp;&nbsp;&nbsp;</i>若需要校验别处处理的数据，请一并上传！</p>
+        <div style="{{ setHide('create') }}">
+            <p class="help-block"><i class="fa fa-exclamation-circle text-info">&nbsp;&nbsp;&nbsp;&nbsp;</i>若需要校验别处处理的数据，请一并上传！</p>
+        </div>
+        <div style="{{ setVisible('create') }}">
+            <p class="help-block" ><i class="fa fa-exclamation-circle text-info">&nbsp;&nbsp;&nbsp;&nbsp;</i>若文件有更改，请重新上传！</p>
+        </div>
     </div>
 </div>
 <!-- Submit Field -->

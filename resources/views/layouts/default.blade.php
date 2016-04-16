@@ -9,6 +9,7 @@
 
     <!-- Styles -->
     <link href="{{ elixir('css/all.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
 
 </head>
 <body id="app-layout">
@@ -17,18 +18,20 @@
     <!-- Branding / Navigation -->
     <div class="row splash-nav">
         <div class="col-md-10 col-md-offset-1">
-            <div class="pull-left splash-brand">
-                <i class="fa fa-btn fa-sun-o"></i>Scistats
+            <div class="pull-left" style="width: 25%;">
+                <a class="navbar-brand" href="{{ url('/') }}">
+                    <img src="/images/home/logo.png" style="width: 100%;">
+                </a>
             </div>
-
             <div class="navbar-header">
                 <button type="button" class="splash-nav-toggle navbar-toggle collapsed" data-toggle="collapse" data-target="#primary-nav" aria-expanded="false" aria-controls="primary-nav">
                     <span class="sr-only">Toggle navigation</span>
-                    MENU
+                    导航
                 </button>
             </div>
 
             <div id="primary-nav" class="navbar-collapse collapse splash-nav-list">
+
                 <ul class="nav navbar-nav navbar-right inline-list">
                     <!-- <li class="splash-nav-link active"><a href="/features">特色</a></li>
                     <li class="splash-nav-link"><a href="/support">常见问题</a></li> -->

@@ -26,7 +26,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                <i class="fa fa-btn fa-gear fa-spin"></i>
+                <i class="fa fa-btn fa-book"></i>
                     Scistats
                 </a>
             </div>
@@ -34,7 +34,7 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/') }}">主页</a></li>
+                    <li><a href="{{ url('/home') }}">主页</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->

@@ -9,3 +9,7 @@ function setVisible($path)
 {
     return Request::is('*' . $path) ? 'display:none' : '' ;
 }
+function setHide($path)
+{
+    return Request::is('*' . $path) ? '' : 'display:none' ;
+}
