@@ -15,12 +15,23 @@
                         <i class="fa fa-btn fa-fw fa-file-excel-o"></i>&nbsp;新需求
                     </a>
                 </li>
-                <li class="{{ setActive('setting') }}">
-                    <a href="{{ route('setting')}}">
-                        <i class="fa fa-btn fa-fw fa-lock"></i>&nbsp;账号管理
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-default panel-flush">
+    <div class="panel-heading">
+        账户管理
+    </div>
+    <div class="panel-body">
+        <div class="app-tabs">
+            <ul class="nav app-tabs-stacked">
+                <li>
+                    <a href="{{ route('setting') }}">
+                        <i class="fa fa-btn fa-fw fa-user "></i>&nbsp;网站账号
                     </a>
                 </li>
-
             </ul>
         </div>
     </div>

@@ -29,12 +29,12 @@
                             <td>{!! $task->budged !!} 元</td>
                             <td>
                                 @if($task->paid == 3)
-                                    <i class="btn btn-success btn-xs"><i class="fa fa-check"></i>已付清</i>
+                                    <i class="btn btn-success btn-xs"><i class="fa fa-check">&nbsp;&nbsp;</i>已付清</i>
                                 @elseif($task->paid == 2)
-                                    <i class="btn btn-info btn-xs"><i class="fa fa-circle-o-notch"></i>确认中</i>
+                                    <i class="btn btn-info btn-xs"><i class="fa fa-circle-o-notch">&nbsp;&nbsp;</i>确认中</i>
                                 @else
-                                    <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target=".dema-pay-modal-{{$task->id}}"><i class="fa fa-credit-card"></i>去支付</button>
-                                    @include('partials.dema-pay-modal')
+                                    <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target=".dema-pay-modal-{{$task->id}}"><i class="fa fa-credit-card">&nbsp;&nbsp;</i>去支付</button>
+                                    @include('partials.dema_pay_modal')
                                 @endif
                             </td>
                             <td>{!! $task->created_at->diffForHumans() !!}</td>
@@ -43,7 +43,7 @@
                                 <div class='btn-group'>
                                     <a href="{!! route('dema.tasks.show', [$task->id]) !!}" class='btn btn-default btn-xs'><i class="fa fa-eye"></i></a>
                                     <a href="{!! route('dema.tasks.edit', [$task->id]) !!}" class='btn btn-default btn-xs'><i class="fa fa-edit"></i></a>
-                                    {!! Form::button('<i class="fa fa-times"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('确认删除？')"]) !!}
+                                    {!! Form::button('<i class="fa fa-times">&nbsp;&nbsp;</i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('确认删除？')"]) !!}
                                 </div>
                                 {!! Form::close() !!}
                             </td>

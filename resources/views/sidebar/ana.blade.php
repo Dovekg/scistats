@@ -1,6 +1,6 @@
 <div class="panel panel-default panel-flush">
     <div class="panel-heading">
-        分析员页面
+        任务管理
     </div>
     <div class="panel-body">
         <div class="app-tabs">
@@ -15,16 +15,29 @@
                         <i class="fa fa-btn fa-fw fa-list fa-folder-open"></i>&nbsp;查看已领取需求
                     </a>
                 </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-default panel-flush">
+    <div class="panel-heading">
+        账户管理
+    </div>
+    <div class="panel-body">
+        <div class="app-tabs">
+            <ul class="nav app-tabs-stacked">
                 <li>
-                    <a href="{{ route('ana.tasks.finished') }}">
-                        <i class="fa fa-btn fa-fw fa-folder"></i>&nbsp;查看已完成需求
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('ana.bonus.index') }}">
+                    <a href="{{ route('ana.bonuses.index') }}">
                         <i class="fa fa-btn fa-fw fa-money "></i>&nbsp;资金池
                     </a>
                 </li>
+                <li>
+                    <a href="{{ route('setting') }}">
+                        <i class="fa fa-btn fa-fw fa-user "></i>&nbsp;网站账号
+                    </a>
+                </li>
+
             </ul>
         </div>
     </div>

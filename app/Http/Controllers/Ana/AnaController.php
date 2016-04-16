@@ -37,11 +37,7 @@ class AnaController extends Controller
         $tasks = $this->tasks->findAllBy('claimed_user_id', Auth::user()->id);
         return view('ana.tasks.claimed', compact('tasks'));
     }
-
-    public function getFinished()
-    {
-
-    }
+    
 
     public function showTask($id)
     {
@@ -63,8 +59,17 @@ class AnaController extends Controller
         return redirect()->back();
     }
 
+    public function reUpload(Request $request, $id)
+    {
+        $task = [];
+        $task = $this->uploadFile($request, 'result', $task);
+        $this->tasks->update($task, $id);
+        Toastr::success('文档上传成功','更新成功');
+        return redirect()->back();
+    }
 
-    public function finishTask(Request $request, $id)
+
+    public function completeTask(Request $request, $id)
     {
         $task = [];
         $task = $this->uploadFile($request, 'result', $task);

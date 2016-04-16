@@ -30,17 +30,15 @@ Route::group(['middleware' => 'web'], function () {
             ]);
         });        
         Route::resource('methods', 'MethodsController');
-        Route::resource('pay', 'PayController');
+        Route::resource('pays', 'PayController');
+        Route::resource('users', 'UsersController');
+        Route::resource('bonuses', 'BonusesController');
     });
     Route::group(['prefix' => 'ana', 'middleware' => 'role:analyzer', 'namespace' => 'Ana'], function () {
         Route::group(['prefix' => 'tasks'], function() {
             Route::get('/claimed', [
                 'as' => 'ana.tasks.claimed',
                 'uses' => 'AnaController@getClaimed'
-            ]);
-            Route::get('/finished', [
-                'as' => 'ana.tasks.finished',
-                'uses' => 'AnaController@getFinished'
             ]);
             Route::get('/', [
                 'as' => 'ana.tasks.all',
@@ -50,16 +48,24 @@ Route::group(['middleware' => 'web'], function () {
                 'as' => 'ana.tasks.show',
                 'uses' => 'AnaController@showTask'
             ]);
+            Route::patch('{id}/upload', [
+                'as' => 'ana.re.upload',
+                'uses' => 'AnaController@reUpload'
+            ]);
             Route::patch('/{id}/claim', [
                 'as' => 'ana.tasks.claim',
                 'uses' => 'AnaController@claimTask'
             ]);
-            Route::patch('/{id}/finish', [
-                'as' => 'ana.tasks.finish',
-                'uses' => 'AnaController@finishTask'
+            Route::patch('/{id}/complete', [
+                'as' => 'ana.tasks.complete',
+                'uses' => 'AnaController@completeTask'
             ]);
         });
-        Route::resource('bonus', 'BonusController');
+        Route::patch('/bonuses/{id}/check', [
+            'as' => 'ana.bonuses.check',
+            'uses' => 'BonusesController@check'
+        ]);
+        Route::resource('bonuses', 'BonusesController');
     });
     Route::group(['prefix' => 'dema', 'middleware' => 'role:demander'], function () {
         Route::get('/agreement', [

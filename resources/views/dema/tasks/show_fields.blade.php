@@ -83,13 +83,9 @@
             @endif
         </tr>
         <tr>
-            {{--TODO: add file download function--}}
             <td>结果数据文档</td>
             @if($task->result_file)
                 <td>
-                    {{--{!! Form::open(['route' => ['download', $task->result_file], 'method' => 'post']) !!}--}}
-                    {{--<button type="submit" class="btn btn-success btn-xs"><i class="fa fa-cloud-download"></i>下载结果文档</button>--}}
-                    {{--{!! Form::close() !!}--}}
                     <a href="{{ route('download.result', $task->result_file) }}" class="btn btn-success btn-xs"><i class="fa fa-cloud-download">&nbsp;&nbsp;</i>{{ $task->result_ori_filename }}</a>
                 </td>
             @else

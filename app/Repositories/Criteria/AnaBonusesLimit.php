@@ -6,11 +6,11 @@ use Bosnadev\Repositories\Contracts\RepositoryInterface as Repository;
 use Illuminate\Support\Facades\Auth;
 
 
-class UserTasksLimit extends Criteria
+class AnaBonusesLimit extends Criteria
 {
     public function apply($model, Repository $repository)
     {
-        $model = $model->where('user_id', Auth::user()->id);
+        $model = $model->where(['user_id', Auth::user()->id]);
         return $model;
     }
 }

@@ -2,21 +2,24 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Repositories\UsersRepository;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Repositories\MethodsRepository;
 
-class MethodsController extends Controller
+class UsersController extends Controller
 {
     protected $repo;
-
-    public function __construct(MethodsRepository $repo)
+    /**
+     * UsersController constructor.
+     */
+    public function __construct(UsersRepository $repo)
     {
         $this->middleware('role:admin');
         $this->repo = $repo;
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -24,8 +27,8 @@ class MethodsController extends Controller
      */
     public function index()
     {
-        $methods = $this->repo->all();
-        return view('admin.methods.index', compact('methods'));
+        $users = $this->repo->all();
+        return view('admin.users.index', compact('users'));
     }
 
     /**

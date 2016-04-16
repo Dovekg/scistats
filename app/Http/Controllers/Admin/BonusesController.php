@@ -1,14 +1,24 @@
 <?php
 
-namespace App\Http\Controllers\Ana;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Repositories\BonusesRepository;
 
-class BonusController extends Controller
+class BonusesController extends Controller
 {
+    protected $repo;
+    /**
+     * BonusesController constructor.
+     */
+    public function __construct(BonusesRepository $repo)
+    {
+        $this->middleware('role:admin');
+        $this->repo = $repo;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +26,8 @@ class BonusController extends Controller
      */
     public function index()
     {
-        //
+        $bonuses = $this->repo->all();
+        return view('admin.bonuses.index', compact('bonuses'));
     }
 
     /**

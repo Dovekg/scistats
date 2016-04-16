@@ -16,6 +16,7 @@ class PayController extends Controller
      */
     public function __construct(PayRepository $repo)
     {
+        $this->middleware('role:admin');
         $this->repo = $repo;
     }
 
@@ -27,7 +28,8 @@ class PayController extends Controller
      */
     public function index()
     {
-        //
+        $pays = $this->repo->all();
+        return view('admin.pays.index', compact('pays'));
     }
 
     /**
