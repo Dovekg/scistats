@@ -17,6 +17,9 @@
                     <th>方法名</th>
                     <th>描述</th>
                     <th>价格</th>
+                    <th>
+                      分组
+                    </th>
                     <th colspan="6">操作</th>
                 </thead>
                 <tbody>
@@ -25,6 +28,9 @@
                         <td>{!! $method->name !!}</td>
                         <td>{!! $method->description !!}</td>
                         <td>{!! $method->price !!}</td>
+                        <td>
+                          {!! $method->group !!}
+                        </td>
                         <td>
                             {!! Form::open(['route' => ['admin.methods.destroy', $method->id], 'method' => 'delete']) !!}
                             <div class='btn-group'>

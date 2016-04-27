@@ -18,7 +18,13 @@
         $(document).ready(function() {
             $('#methods-select').multiselect({
                 nonSelectedText: '选择你希望用到的方法，可多选',
-                allSelectedText: '所有方法'
+                allSelectedText: '所有方法',
+                enableFiltering: true,
+                maxHeight: 400,
+                templates: {
+                    filter: '<li class="multiselect-item filter"><div class="input-group"><span class="input-group-addon"><i class="fa fa-search"></i></span><input class="form-control multiselect-search" type="text"></div></li>',
+                    filterClearBtn: '<span class="input-group-btn"><button class="btn btn-default multiselect-clear-filter" type="button"><i class="fa fa-times"></i></button></span>'
+                }
             });
         });
 

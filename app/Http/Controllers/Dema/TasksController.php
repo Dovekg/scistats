@@ -80,7 +80,7 @@ class TasksController extends Controller
         $task['budged'] = $budged;
 //        dd($task);
         $id = $this->repo->create($task)->id;
-        
+
         if($methods)
         {
             foreach ($methods as $key => $method)

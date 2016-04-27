@@ -1,7 +1,7 @@
 <?php
 Route::group(['middleware' => 'web'], function () {
     Route::get('/', function(){
-        return view('welcome');
+        return view('homepage');
     });
     Route::auth();
     Route::get('/home', 'HomeController@index');
@@ -28,7 +28,7 @@ Route::group(['middleware' => 'web'], function () {
                 'as' => 'admin.tasks.destroy',
                 'uses' => 'AdminController@confirmTask'
             ]);
-        });        
+        });
         Route::resource('methods', 'MethodsController');
         Route::resource('pays', 'PayController');
         Route::resource('users', 'UsersController');

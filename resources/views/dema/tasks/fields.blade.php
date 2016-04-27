@@ -3,9 +3,20 @@
     {!! Form::label('methods', '分析方法：', ['class' => 'col-sm-2 col-sm-offset-1 control-label']) !!}
     <div class="col-sm-5">
         <select id="methods-select" multiple="multiple" name="methods[]">
-            @foreach ($methods as $method)
-                <option value={{$method->id}}>{{$method->name}}</option>
-            @endforeach
+            <optgroup label="已定价方法">
+                @foreach ($methods as $method)
+                  @if($method->price)
+                    <option value={{$method->id}}>{{ $method->name }} </option>
+                  @endif
+                @endforeach
+            </optgroup>
+            <optgroup label="未定价方法">
+                @foreach ($methods as $method)
+                  @if(!$method->price)
+                    <option value={{$method->id}}>{{ $method->name }} </option>
+                  @endif
+                @endforeach
+            </optgroup>
         </select>
         <div style="{{ setVisible('create') }}"><p class="help-block" ><i class="fa fa-exclamation-circle text-info">&nbsp;&nbsp;&nbsp;&nbsp;</i>请重新重新选择方法！</p></div>
     </div>
@@ -14,7 +25,7 @@
 <div class="form-group">
     {!! Form::label('description', '描述：', ['class' => 'col-sm-2 col-sm-offset-1 control-label']) !!}
     <div class="col-sm-5">
-        {!! Form::textarea('description', null, ['class' => 'form-control', 'rows' => '3']) !!}
+        {!! Form::textarea('description', null, ['class' => 'form-control', 'rows' => '5']) !!}
     </div>
 </div>
 <div class="form-group">

@@ -39,17 +39,7 @@
                         <li class="splash-nav-link splash-nav-link-highlight"><a href="/login">登陆</a></li>
                         <li class="splash-nav-link splash-nav-link-highlight-border"><a href="/register">注册</a></li>
                     @else
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
-
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/home') }}"><i class="fa fa-btn fa-gears"></i>管理界面</a></li>
-                                <div class="divider"></div>
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>登出</a></li>
-                            </ul>
-                        </li>
+                        <li class="splash-nav-link splash-nav-link-highlight-border"><a href="/home">管理页面</a></li>
                     @endif
 
                 </ul>
@@ -59,7 +49,7 @@
         </div>
     </div>
 
-    
+
 @yield('content')
 </div>
 

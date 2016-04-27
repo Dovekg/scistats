@@ -15,17 +15,20 @@ class MethodsTableSeeder extends Seeder
                 [
                 'name' => 'method1',
                 'description' => 'This is method1',
-                'price' => 100
+                'price' => 100,
+                'group' => 1
                 ],
                 [
                 'name' => 'method2',
                 'description' => 'This is method2',
-                'price' => 300
+                'price' => 300,
+                'group' => 1
                 ],
                 [
                 'name' => 'method3',
                 'description' => 'This is method3',
-                'price' => 1000
+                'price' => 1000,
+                'group' => 2
                 ]
             ]);
     }
