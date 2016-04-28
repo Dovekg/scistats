@@ -9,10 +9,11 @@
 
     <!-- Styles -->
     <link href="{{ elixir('css/all.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="/css/master.css">
 
 </head>
-<body id="app-layout">
-    <nav class="navbar navbar-default navbar-static-top">
+<body id="app-layout" class="with-navbar">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
 
@@ -26,8 +27,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                <i class="fa fa-btn fa-book"></i>
-                    Scistats
+                    <img src="/images/home/sci-logo.png" style="height: 32px;">
                 </a>
             </div>
 
@@ -69,7 +69,7 @@
             @elseif(Auth::user()->role == 'demander')
                 @include('sidebar.dema')
             @endif
-            
+
         </div>
         <div class="col-sm-9">
             <div class="tab-content">
@@ -79,7 +79,7 @@
             </div>
         </div>
     </div>
-    
+
 
     <!-- JavaScripts -->
     <script src="{{ elixir('js/all.js') }}"></script>

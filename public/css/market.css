@@ -1,6 +1,7 @@
 body {
 	font-size: 16px;
 	font-weight: 400;
+	padding-bottom: -26px;
 	color: #424242;
 	-webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -59,7 +60,8 @@ strong{
 
 .logo {
 	float: left;
-	background-image: url("/images/home/spark-logo.png");
+	background-image: url("/images/home/sci-logo.png");
+	background-size: 100%;
 	background-repeat: no-repeat;
 	padding-top: 12px;
 	padding-left: 144px;
@@ -103,16 +105,16 @@ a.get-started-cta:hover{
 
 .get-started-cta-btn{
 	font-size: 18px;
-	padding-left: 34px;
+	/*padding-left: 9px;*/
 	color: #fff;
 	display: inline-block;
 	min-width: 0;
 	min-height: 0;
 	margin: 0;
 	text-align: center;
-	background-image: url("/images/home/icon-watch.png");
+	/*background-image: url("/images/home/icon-watch.png");
 	background-size: 24px 24px;
-	background-repeat: no-repeat;
+	background-repeat: no-repeat;*/
 	text-decoration: none;
 }
 
@@ -160,13 +162,7 @@ p.only-cost{
 	font-size: 18px;
 }
 
-.taylor-quote{
-	/*background-image: url("/img/marketing/quotes.png");
-	background-size: 440px 120px;*/
-	height: auto;
-	padding-top: 10px;
-	display: block;
-}
+
 
 .learn-more-cta{
 	margin: 10px 0;
@@ -190,18 +186,16 @@ a.learn-more-cta-btn:hover{
 	opacity: 0.9;
 }
 
-
-#footer {
+#service {
 	padding: 20px 0;
-	background-color: #fff;
-	border-top: 2px solid #D2D6D8;
 }
 
 
-#features {
-	background-color: #FFF;
-	padding: 60px 0 80px 0;
-	border-bottom: 1px solid #D2D6D8;
+
+#footer {
+	padding: 20px 0 0 0;
+	background-color: #fff;
+	border-top: 2px solid #D2D6D8;
 }
 
 

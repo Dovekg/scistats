@@ -1,5 +1,15 @@
 
 <div class="form-group">
+    {!! Form::label('level', '选择需求类型：', ['class' => 'col-sm-2 col-sm-offset-1 control-label']) !!}
+    <div class="col-sm-5">
+        {{-- {!! Form::textarea('description', null, ['class' => 'form-control', 'rows' => '5']) !!} --}}
+        <label class="level">{!! Form::radio('level', 1, true, ['id' => 'level1']) !!} 基础分析 </label>
+        <label class="level">{!! Form::radio('level', 2, false, ['id' => 'level2']) !!} 高级分析 </label>
+        <label class="level">{!! Form::radio('level', 3, false, ['id' => 'level3']) !!} 数据挖掘 </label>
+        <label class="level">{!! Form::radio('level', 4, false, ['id' => 'level4']) !!} 结果校验 </label>
+    </div>
+</div>
+<div class="form-group">
     {!! Form::label('methods', '分析方法：', ['class' => 'col-sm-2 col-sm-offset-1 control-label']) !!}
     <div class="col-sm-5">
         <select id="methods-select" multiple="multiple" name="methods[]">

@@ -74,6 +74,7 @@ class TasksController extends Controller
         $task = $this->uploadFile($request, 'data', $task);
         $task = $this->uploadFile($request, 'review', $task);
         $task['user_id'] = Auth::user()->id;
+        $task['level'] = $request->get('level');
         $task['description'] = $request->get('description');
         $task['phone'] = $request->get('phone');
         $task['email'] = $request->get('email');
