@@ -33,7 +33,7 @@
                     <button class="btn btn-info btn-xs"><i class="fa fa-circle-o-notch"></i>确认中</button>
                 @else
                     <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target=".dema-pay-modal-{{$task->id}}"><i class="fa fa-credit-card">&nbsp;&nbsp;</i>去支付</button>
-                    @include('partials.dema-pay-modal')
+                    @include('partials.dema_pay_modal')
                 @endif
             </td>
         </tr>
@@ -61,9 +61,6 @@
             <td>原先数据文档</td>
             @if($task->data_file)
                 <td>
-                    {{--{!! Form::open(['route' => ['download', $task->data_file], 'method' => 'post']) !!}--}}
-                    {{--<button type="submit" class="btn btn-success btn-xs"><i class="fa fa-cloud-download"></i>下载数据文档</button>--}}
-                    {{--{!! Form::close() !!}--}}
                     <a href="{{ route('download.data', $task->data_file) }}" class="btn btn-success btn-xs"><i class="fa fa-cloud-download">&nbsp;&nbsp;</i>{{ $task->data_ori_filename }}</a>
                 </td>
             @else

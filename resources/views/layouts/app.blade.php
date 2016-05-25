@@ -10,9 +10,12 @@
     <!-- Styles -->
     <link href="{{ elixir('css/all.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="/css/master.css">
+    <link rel="stylesheet" type="text/css" href="/css/minimal/minimal.css">
+
 
 </head>
 <body id="app-layout" class="with-navbar">
+<div class="top-bar"></div>
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -83,7 +86,8 @@
 
     <!-- JavaScripts -->
     <script src="{{ elixir('js/all.js') }}"></script>
-@yield('scripts')
+    <script type="text/javascript" src="/js/icheck.min.js"></script>
     {!! Toastr::render() !!}
+    @yield('scripts')
 </body>
 </html>

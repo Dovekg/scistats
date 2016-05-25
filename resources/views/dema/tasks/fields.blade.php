@@ -3,31 +3,20 @@
     {!! Form::label('level', '选择需求类型：', ['class' => 'col-sm-2 col-sm-offset-1 control-label']) !!}
     <div class="col-sm-5">
         {{-- {!! Form::textarea('description', null, ['class' => 'form-control', 'rows' => '5']) !!} --}}
-        <label class="level">{!! Form::radio('level', 1, true, ['id' => 'level1']) !!} 基础分析 </label>
-        <label class="level">{!! Form::radio('level', 2, false, ['id' => 'level2']) !!} 高级分析 </label>
-        <label class="level">{!! Form::radio('level', 3, false, ['id' => 'level3']) !!} 数据挖掘 </label>
-        <label class="level">{!! Form::radio('level', 4, false, ['id' => 'level4']) !!} 结果校验 </label>
+        <label class="level">{!! Form::radio('level', 1, true, ['id' => 'level1']) !!} 统计分析 </label>
+        <label class="level">{!! Form::radio('level', 2, false, ['id' => 'level2']) !!} 数据挖掘 </label>
+        <label class="level">{!! Form::radio('level', 3, false, ['id' => 'level3']) !!} 结果校验 </label>
     </div>
 </div>
 <div class="form-group">
     {!! Form::label('methods', '分析方法：', ['class' => 'col-sm-2 col-sm-offset-1 control-label']) !!}
     <div class="col-sm-5">
-        <select id="methods-select" multiple="multiple" name="methods[]">
-            <optgroup label="已定价方法">
-                @foreach ($methods as $method)
-                  @if($method->price)
-                    <option value={{$method->id}}>{{ $method->name }} </option>
-                  @endif
-                @endforeach
-            </optgroup>
-            <optgroup label="未定价方法">
-                @foreach ($methods as $method)
-                  @if(!$method->price)
-                    <option value={{$method->id}}>{{ $method->name }} </option>
-                  @endif
-                @endforeach
-            </optgroup>
-        </select>
+        @foreach ($methods as $key => $method)
+            <label>
+                <input type="checkbox" name="methods[{{$method->id}}]">&nbsp;&nbsp;
+                {{ $method->name }}&nbsp;&nbsp;
+            </label>
+        @endforeach
         <div style="{{ setVisible('create') }}"><p class="help-block" ><i class="fa fa-exclamation-circle text-info">&nbsp;&nbsp;&nbsp;&nbsp;</i>请重新重新选择方法！</p></div>
     </div>
 </div>

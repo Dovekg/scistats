@@ -60,13 +60,13 @@ class TasksController extends Controller
         $methods = $request->get('methods');
 
         $budged = 0.0;
-        if($methods){
-            $prices = $methodsRepo->find($methods)->lists('price');
-            foreach($prices as $price)
-            {
-                $budged += $price;
-            }
 
+        if($methods){
+            foreach ($methods as $key => $method)
+            {
+                $method = $methodsRepo->find($key)->first();
+                $budged += $method->price;
+            }
         }
 
 
@@ -86,7 +86,7 @@ class TasksController extends Controller
         {
             foreach ($methods as $key => $method)
             {
-                $this->repo->find($id)->methods()->attach($method);
+                $this->repo->find($id)->methods()->attach($key);
             }
         }
         Toastr::success('需求添加成功','成功');
@@ -103,9 +103,6 @@ class TasksController extends Controller
     {
         $task = $this->repo->find($id);
         $pays = $pay->all();
-//        dd($task);
-//        $methods = $task->methods()->get();
-//        dd($task);
         return view('dema.tasks.show', compact('task', 'pays'));
     }
 

@@ -27,7 +27,9 @@ class Task extends Model {
     
     public function methods()
     {
-        return $this->belongsToMany('App\Models\Method');
+        return  $this->morphToMany('App\Models\Method', 'methodable');
+
     }
+
     
 }

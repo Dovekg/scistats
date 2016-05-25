@@ -1,7 +1,6 @@
 body {
 	font-size: 16px;
 	font-weight: 400;
-	padding-bottom: -26px;
 	color: #424242;
 	-webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -26,10 +25,9 @@ body {
 	padding-top: 40px;
 }
 
-
 .top-bar{
 	height: 10px;
-	background: #69AED1;
+	background: #3291f6;
 }
 
 .navbar .nav-links li {
@@ -41,6 +39,13 @@ body {
 .navbar .nav-links {
 	float: right;
 	line-height: 64px;
+}
+
+.text-question {
+	font-size: 16px;
+	font-weight: 500;
+	color: #fff;
+	padding: 6px 12px;
 }
 
 .headline{
@@ -86,7 +91,7 @@ strong{
 
 a.get-started-cta{
 	float: left;
-	background: #69AED1;
+	background: #3291f6;
 	font-weight: 500;
 	margin-top: 32px;
 	padding-top: 16px;
@@ -144,7 +149,7 @@ copy
 
 .save-costs{
 	margin-top: 0px;
-	background: #69AED1;
+	background: #3291f6;
 	padding: 15px 40px 15px 40px;
 }
 
@@ -171,7 +176,7 @@ p.only-cost{
 a.learn-more-cta-btn{
 	font-size: 16px;
 	padding: 6px 10px;
-	color: #69AED1;
+	color: #3291f6;
 	background: #fff;
 	display: block;
 	line-height: 21px;
@@ -259,21 +264,48 @@ nav.navbar a:hover {
 	text-decoration: none;
 }
 
+#features {
+	padding-bottom: 60px;
+}
+
+.features-card {
+	display: block;
+	position: relative;
+	width: 100%;
+	padding: 20px 0 0;
+	margin: 10px 0 20px 0;
+	text-align:center;
+}
+.features-card img {
+	width: 50%;
+}
+
+.features-card h3 {
+	font-weight: 400;
+	padding-bottom: 20px;
+}
+
+.features-card p {
+	line-height: 20px;
+	margin: 20px 40px;
+}
+
+/*
 figure {
 	display: block;
 	margin-bottom: 20px;
-	width: 84px;
-	height:84px;
+	width: 100%;
+	height:168px;
 	background-repeat: no-repeat;
-}
+}*/
 
-.skill{
+/*.skill{
 	margin-top: 20px;
 }
 
 .icon-1{
-	background-image: url("/images/home/analyzis-01.png");
-	background-size: 72px 72px;
+	background-image: url("/images/home/chara-01.png");
+	background-size: 514px 296px;
 }
 
 .icon-2{
@@ -284,7 +316,7 @@ figure {
 .icon-3{
 	background-image: url("/images/home/analyzis-03.png");
 	background-size: 72px 72px;
-}
+}*/
 
 @media
 (min-width: 1200px){
@@ -377,7 +409,7 @@ p.lead {
 
 .logo{
 	float: none;
-	background-image: url("/images/home/logo.png");
+	background-image: url("/images/home/sci-logo.png");
 	background-repeat: no-repeat;
 	padding-top: 12px;
 	padding-left: 144px;
@@ -479,7 +511,7 @@ p.enough-features{
 (min-resolution: 192dpi) {
 
 .logo {
-	background-image: url("/img/marketing/spark-logo@2x.png");
+	background-image: url("/images/home/sci-logo.png");
 	background-size: 144px 48px;
 }
 }

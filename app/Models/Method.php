@@ -13,8 +13,16 @@ class Method extends Model {
     protected $casts = [
     ];
 
+    
+
     public function tasks()
     {
-        return $this->belongsToMany('App\Models\Task');
+        return $this->morphedByMany('App\Models\Tasks', 'methodable');
+    }
+
+
+    public function questions()
+    {
+        return $this->morphedByMany('App\Models\Question', 'methodable');
     }
 }

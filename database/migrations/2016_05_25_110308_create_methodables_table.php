@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMethodTaskTable extends Migration
+class CreateMethodablesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,10 +12,10 @@ class CreateMethodTaskTable extends Migration
      */
     public function up()
     {
-        Schema::create('method_task', function (Blueprint $table) {
+        Schema::create('methodables', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('task_id')->index();
-            $table->integer('method_id')->index();
+            $table->integer('method_id');
+            $table->morphs('methodable');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CreateMethodTaskTable extends Migration
      */
     public function down()
     {
-        Schema::drop('method_task');
+        Schema::drop('methodables');
     }
 }

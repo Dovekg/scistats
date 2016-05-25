@@ -1,4 +1,8 @@
 var elixir = require('laravel-elixir');
+
+elixir.config.sourcemaps = false;
+
+
 elixir(function(mix) {
         mix.sass('app.scss');
         mix.styles([
@@ -7,14 +11,13 @@ elixir(function(mix) {
             'css/app.css',
             'css/multiple-select.css',
             'css/toastr.min.css',
-            'css/style.css'
         ], 'public/css/all.css','./public/');
 
         mix.scripts([
             'bower_components/jquery/dist/jquery.min.js',
             'bower_components/bootstrap/dist/js/bootstrap.min.js',
             'js/multiple-select.js',
-            'toastr.min.js'
+            'js/toastr.min.js'
         ], 'public/js/all.js','./public/');
 
         mix.version([

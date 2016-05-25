@@ -15,10 +15,11 @@
 @stop
 @section('scripts')
     <script type="text/javascript">
-        $(document).ready(function() {
-            $('#methods-select').multiselect({
-                nonSelectedText: '选择你希望用到的方法，可多选',
-                allSelectedText: '所有方法'
+        $(document).ready(function(){
+        $('input').iCheck({
+            checkboxClass: 'icheckbox_minimal',
+            radioClass: 'iradio_minimal',
+            increaseArea: '20%' // optional
             });
         });
 

@@ -10,4 +10,17 @@
         </div>
     </div>
 
-    @stop
+@stop
+
+@section('scripts')
+    <script type="text/javascript">
+        $(document).ready(function(){
+	        $('input').iCheck({
+	            checkboxClass: 'icheckbox_minimal',
+	            radioClass: 'iradio_minimal',
+	            increaseArea: '20%' // optional
+	            });
+	        });
+
+    </script>
+@stop

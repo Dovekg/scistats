@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests;
 use App\Repositories\TasksRepository;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Response;
+use Illuminate\Http\Request;
+use App\Repositories\MethodsRepository;
 
 
 class HomeController extends Controller
@@ -17,7 +18,14 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except(['main', 'question']);
+    }
+
+
+    public function main(MethodsRepository $methods)
+    {
+        $methods = $methods->all();
+        return view('index', compact('methods'));
     }
 
     /**

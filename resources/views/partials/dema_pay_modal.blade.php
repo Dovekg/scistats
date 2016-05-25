@@ -14,7 +14,7 @@
                                     {!! Form::label('pay_method', '支付方法：', ['class' => 'col-sm-3 col-sm-offset-1 control-label']) !!}
                                     <div class="col-sm-7">
                                         @foreach($pays as $pay)
-                                            {!! Form::radio('pay_method', $pay->id, ['class' => 'form-control']) !!} <span>{{$pay->method . ' : ' . $pay->account}}</span></br>
+                                            {!! Form::radio('pay_method', $pay->id) !!} <span>{{$pay->method . ' : ' . $pay->account}}</span></br>
                                         @endforeach
                                     </div>
                                 </div>
