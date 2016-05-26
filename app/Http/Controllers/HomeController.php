@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\QuestionsRepository;
 use App\Repositories\TasksRepository;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Response;
@@ -49,6 +50,15 @@ class HomeController extends Controller
         $file = Storage::disk('local')->get($entry->data_file);
         return (new Response($file, 200))
             ->header('Content-Type', $entry->data_mime);
+    }
+
+
+    public function downloadSample(QuestionsRepository $question, $path)
+    {
+        $entry = $question->findBy('sample', $path);
+        $file = Storage::disk('local')->get($entry->sample);
+        return (new Response($file, 200))
+            ->header('Content-Type', $entry->sample_mime);
     }
 
     /**

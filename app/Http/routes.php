@@ -3,7 +3,9 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/', 'HomeController@main');
     Route::auth();
     Route::get('/home', 'HomeController@index');
+    Route::get('/questions/all', ['as' => 'questions.all', 'uses' => 'QuestionsController@all']);
     Route::resource('questions', 'QuestionsController');
+    Route::get('/download/sample/{path}', ['as' => 'download.sample', 'uses' => 'HomeController@downloadSample']);
     Route::get('/download/data/{path}', ['as' => 'download.data', 'uses' => 'HomeController@downloadData']);
     Route::get('/download/review/{path}', ['as' => 'download.review', 'uses' => 'HomeController@downloadReview']);
     Route::get('/download/result/{path}', ['as' => 'download.result', 'uses' => 'HomeController@downloadResult']);

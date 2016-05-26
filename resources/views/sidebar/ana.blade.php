@@ -11,6 +11,11 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{ route('questions.all') }}">
+                        <i class="fa fa-btn fa-fw fa-list"></i>&nbsp;查看匿名咨询
+                    </a>
+                </li>
+                <li>
                     <a href="{{ route('ana.tasks.claimed') }}">
                         <i class="fa fa-btn fa-fw fa-list fa-folder-open"></i>&nbsp;查看已领取需求
                     </a>

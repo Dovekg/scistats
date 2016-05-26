@@ -14,6 +14,6 @@ return [
     */
 
     'previous' => '&laquo; 前一页',
-    'next'     => 'N后一页 &raquo;',
+    'next'     => '后一页 &raquo;',
 
 ];

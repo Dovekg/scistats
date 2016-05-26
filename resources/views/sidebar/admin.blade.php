@@ -11,6 +11,11 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{ route('questions.all') }}">
+                        <i class="fa fa-btn fa-fw fa-list"></i>&nbsp;审核咨询
+                    </a>
+                </li>
+                <li>
                     <a href="{{ route('admin.methods.index') }}">
                         <i class="fa fa-btn fa-fw fa-puzzle-piece"></i>&nbsp;管理方法
                     </a>

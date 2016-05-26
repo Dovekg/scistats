@@ -38,6 +38,7 @@ class QuestionsController extends Controller
                     file_get_contents($file->getRealPath())
                 );
                 $method['sample'] = $savePath;
+                $task['sample_mime'] = $file->getClientMimeType();
             }
         }
         $method['description'] = $request->get('description');
@@ -55,23 +56,23 @@ class QuestionsController extends Controller
         return redirect()->back();
     }
 
-
-    public function uploadFile(Request $request, $type, $task)
+    public function all()
     {
-        if ($request->hasFile($type)) {
-            $file = $request->file($type);
-            if ($file->isValid()) {
-                $newFileName = md5(time() . rand(0, 1000)) . '.' . $file->getClientOriginalExtension();
-                $savePath = $newFileName;
-                Storage::put(
-                    $savePath,
-                    file_get_contents($file->getRealPath())
-                );
-                $task[$type] = $savePath;
-                return $task;
-            }
-            return $task;
-        }
-        return $task;
+        $questions = $this->ques->all();
+        return view('user.questions.index', compact('questions'));
     }
+
+    public function show($id)
+    {
+        $question = $this->ques->find($id);
+        return view('user.questions.show', compact('question'));
+    }
+
+    public function destroy()
+    {
+        $this->ques->delete($id);
+        Toastr::success('匿名质询删除成功','成功');
+        return redirect()->back();
+    }
+
 }
